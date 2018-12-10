@@ -42,4 +42,9 @@ public class Card
         }
         return false;
     }
+
+    public String toString()
+    {
+        return(this.rank + " of " + this.suit + " Point Value: " + this.pointValue);
+    }
 }
