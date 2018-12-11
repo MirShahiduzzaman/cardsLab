@@ -49,4 +49,12 @@ public class Deck
         unDealt.remove(0);
         return(selected);
     }
+
+    public void shuffle()
+    {
+        Card temp;
+
+        
+    }
+
 }
