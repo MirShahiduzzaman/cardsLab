@@ -39,7 +39,7 @@ public class Deck
 
     public Card deal()
     {
-        if(unDealt.size() == 0)
+        if(this.isEmpty())
         {
             return null;
         }
@@ -53,8 +53,36 @@ public class Deck
     public void shuffle()
     {
         Card temp;
+        int r;
 
-        
+        //Shuffles Dealt deck
+        for(int k = Dealt.size()-1; k>0; k--)
+        {
+            r = (int)(Math.random()*k);
+
+            temp = Dealt.get(r);
+            Dealt.set(r,Dealt.get(k));
+
+            Dealt.set(k,temp);
+        }
+
+        //Places shuffled Dealt Cards to unDealt Pile
+        //Also removes the same cards from Dealt Deck
+        for(int i = 0; i<Dealt.size(); i++)
+        {
+            unDealt.add(Dealt.get(0));
+            Dealt.remove(0);
+        }
+
+        for(int k = this.size()-1; k>0; k--)
+        {
+            r = (int)(Math.random()*k);
+
+            temp = unDealt.get(r);
+            unDealt.set(r,unDealt.get(k));
+
+            unDealt.set(k,temp);
+        }
     }
 
 }
