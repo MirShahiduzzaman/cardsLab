@@ -9,16 +9,14 @@ public class Deck
     public Deck(String[] rank,String[] suit,int[] pointValue)
     {
         unDealt = new ArrayList<>();
+        Dealt = new ArrayList<>();
 
         for(int i = 0;i<rank.length;i++)
         {
-            for(int a = 0;a<rank.length;a++)
+            for(int a = 0;a<suit.length;a++)
             {
-                for(int b = 0;b<rank.length;b++)
-                {
-                    Card newCard = new Card(rank[i],suit[a],pointValue[b]);
-                    unDealt.add(newCard);
-                }
+                Card newCard = new Card(rank[i],suit[a],pointValue[i]);
+                unDealt.add(newCard);
             }
         }
     }
@@ -55,23 +53,9 @@ public class Deck
         Card temp;
         int r;
 
-        //Shuffles Dealt deck
-        for(int k = Dealt.size()-1; k>0; k--)
+        while(Dealt.size()>0)
         {
-            r = (int)(Math.random()*k);
-
-            temp = Dealt.get(r);
-            Dealt.set(r,Dealt.get(k));
-
-            Dealt.set(k,temp);
-        }
-
-        //Places shuffled Dealt Cards to unDealt Pile
-        //Also removes the same cards from Dealt Deck
-        for(int i = 0; i<Dealt.size(); i++)
-        {
-            unDealt.add(Dealt.get(0));
-            Dealt.remove(0);
+            unDealt.add(Dealt.remove(0));
         }
 
         for(int k = this.size()-1; k>0; k--)

@@ -45,6 +45,6 @@ public class Card
 
     public String toString()
     {
-        return(this.rank + " of " + this.suit + " Point Value: " + this.pointValue);
+        return(this.rank + " - " + this.suit + " - " + this.pointValue);
     }
 }
